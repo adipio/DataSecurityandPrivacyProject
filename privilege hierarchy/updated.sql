@@ -1,3 +1,5 @@
+CREATE DATABASE universitydb;
+
 CREATE TABLE `universitydb`.`faculty` (
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,

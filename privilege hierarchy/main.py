@@ -1,16 +1,4 @@
-import mysql.connector
-
-def universitydb():
-    try:
-        results = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        password = "1234",
-        database = "universitydb",)
-        return results
-    except:
-        print("Something went wrong with connecting to the database. \n Try checking if the SQL server is running, and check if you have the correct password in backend/connection.py")
-
+import connection
 
 #Adds a user to the user data base ant then returns true if they were added correctly
 def addFaculty(firstName, lastName, email, job):
@@ -37,7 +25,7 @@ def addStudent(firstName, lastName, studentID, creditHours, year, age, Advisor):
     universitydb.commit()
     my_cursor.close()
 
-def deleteFaculty(): # what do we wanna delete by on each table?
+def deleteFaculty(facultyID): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM faculty WHERE userID = %s"
@@ -47,7 +35,7 @@ def deleteFaculty(): # what do we wanna delete by on each table?
     print("Faculty deleted")
     my_cursor.close()
 
-def deleteCourse(): # what do we wanna delete by on each table?
+def deleteCourse(courseID): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM courses WHERE userID = %s"
@@ -72,22 +60,31 @@ def viewFaculty():
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM faculty")
     results = my_cursor.fetchall()
-    return results
+    #return results
 
 def viewCourses():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
-    return results
+    #return results
 
 def viewStudents():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM students")
     results = my_cursor.fetchall()
-    return results
+    #return results
 
+if __name__ == "__main__":
 
-'__main__'
+    #first = input("First")
+    #last = input("Last")
+    #email = input("email")
+    #job = input("job")
+    #print("hello")
+    #addFaculty(first,last,email, job)
 
+    addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
+    addCourse("className", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
+    addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works

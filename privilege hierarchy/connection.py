@@ -1,6 +1,6 @@
 import mysql.connector
 
-def fpdatabase():
+def universitydb():
     try:
         results = mysql.connector.connect(
         host = "localhost",
