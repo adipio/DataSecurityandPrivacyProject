@@ -90,3 +90,35 @@ if __name__ == "__main__":
     addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
     addCourse("className", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
     addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
+
+    addStudent("Dominic", "DiTirro", 810830000, 12, 2021, 24, "Max");
+    addStudent("Eddy", "Brock", 80349510, 8, 2021, 29, "John");
+    addStudent("Ash", "Ketchum", 837852019, 18, 2024, 12, "Eddy");
+    addStudent("Peter", "Parker", 90495039, 21, 2021, 19, "Max:");
+    addStudent("John", "Doe", 810562930, 0, 2025, 18, "Chris");
+    addStudent("Jane", "Doe", 809389832, 0, 2025, 18, "Eddy");
+    addStudent("James", "Roday", 803841239, 12, 2022, 28, "Eddy");
+    addStudent("Charles", "Conway", 893849282, 14, 2022, 16, "Eddy");
+    addStudent("Samantha", "Espen", 810938039, 12, 2022, 19, "John");
+    addStudent("Emily", "Brown", 930281920, 16, 2021, 20, "Max");
+    addStudent("Tom", "Cruise", 930485932, 19, 2023, 27, "Chris");
+    addStudent("Jimmy", "Fallon", 192051231, 8, 2024, 26, "Max");
+    addStudent("Thomas", "Brady", 302934012, 15, 2023, 25, "Chris");
+    addStudent("Jermaine", "Cole", 829342034, 14, 2023, 28, "Max");
+    addStudent("Aubrey", "Plaza", 839402934, 12, 2024, 27, "John");
+    addStudent("Jenna", "Fischer", 392048193, 12, 2025, 30, "Chris");
+
+
+    addFaculty("Daniel", "Craig", "dcraig@kent.edu", "Professor");
+    addFaculty("Dwayne", "Johnson", "djohnso68@kent.edu", "Maintenance");
+    addFaculty("Sofia", "Vergara", "svergar1@kent.edu", "Professor");
+    addFaculty("Angelina", "Jolie", "ajolie@kent.edu", "Maintenance");
+    addFaculty("William", "Smith", "wsmith42", "Janitor");
+    addFaculty("Denzel", "washington", "dwashing@kent.edu", "Professor");
+    addFaculty("Gal", "Gadot", "ggadot@kent.edu", "Professor");
+    addFaculty("Emily", "Blunt", "eblunt@kent.edu", "Maintenance");
+    addFaculty("Leonardo", "DiCaprio", "ldicapr@kent.edu", "Professor");
+    addFaculty("Mark", "Wahlberg", "mwahlbe@kent.edu", "Janitor");
+    addFaculty("Nicole", "Kidman", "nkidman@kent.edu", "Janitor");
+    addFaculty("Emma", "Watson", "ewatson@kent.edu", "Admin");
+    addFaculty("Ryan", "Gosling", "rgoslin@kent.edu", "Admin");
