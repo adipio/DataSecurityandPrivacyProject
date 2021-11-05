@@ -41,7 +41,7 @@ def passHash(password):
 def userExists(username):
     fpdatabase = connection.fpdatabase()
     my_cursor = fpdatabase.cursor()
-    sql = "SELECT * FROM user WHERE userID= %s"
+    sql = "SELECT * FROM user WHERE username= %s"
     my_cursor.execute(sql, (username,))
     results = my_cursor.fetchone()
     my_cursor.close()
@@ -51,12 +51,11 @@ def userExists(username):
         return False
 
 #Adds a user to the user data base ant then returns true if they were added correctly
-def addUser(username,firstname, middlename, lastname, email, password):
+def addUser(username, password):
     fpdatabase = connection.fpdatabase()
     initalCheck = userExists(username) #this may not work
-    admin = 0
     my_cursor = fpdatabase.cursor()
-    sqlStuff = "INSERT INTO user (userID,firstName, middleName, lastName, email, password, profilePicture, bio, admin) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    sqlStuff = "INSERT INTO user (username, password,) VALUES (%s,%s,%s,)"
     my_cursor.execute(sqlStuff, (username, firstname, middlename, lastname, email, passHash(password), False, "", admin,))
     fpdatabase.commit()
     my_cursor.close()
