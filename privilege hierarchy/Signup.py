@@ -53,7 +53,7 @@ def userExists(username):
 #Adds a user to the user data base ant then returns true if they were added correctly
 def addUser(username,firstname, middlename, lastname, email, password):
     fpdatabase = connection.fpdatabase()
-    initalCheck = userExists(username) # this is inefficient because it still does the rest of the function if there's already a record with that userID
+    initalCheck = userExists(username) #this may not work
     admin = 0
     my_cursor = fpdatabase.cursor()
     sqlStuff = "INSERT INTO user (userID,firstName, middleName, lastName, email, password, profilePicture, bio, admin) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -67,9 +67,17 @@ def addUser(username,firstname, middlename, lastname, email, password):
         return False
 
 #checks to see if the userID is taken and adds the user if the user does not exist.
-def signUp(username, firstname, middlename, lastname, email, password, password2):
+def signUp():
+    userName = input("What would you like your user name to be?")
+    firstName = input("What is your first name? ")
+    middleName = input("What is your middle name? ")
+    lastName = input("What is your last name? ")
+    email = input("What is your email")
+    password = input("password:")
+    password2 = input("password:")
+
     if password == password2 and passwordChecker(password):
-        if addUser(username,firstname, middlename, lastname, email, password):
+        if addUser(userName,firstName, middleName, lastName, email, password):
             print("User was successfully added to the database")
             return True
         else:

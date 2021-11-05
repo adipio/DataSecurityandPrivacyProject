@@ -15,13 +15,7 @@ def userExists(username):
         return False
 
 #Function that returns the current bio // works
-def currentBio(username):
-    fpdatabase = connection.fpdatabase()
-    my_cursor = fpdatabase.cursor()
-    q = "SELECT bio FROM user WHERE userID = %s"
-    my_cursor.execute(q,(username,))
-    results = my_cursor.fetchone()
-    return results
+
 
 #Allows user to change thier bio in the user database and returns true if it was changed false if unchanged //works
 def updateBio(username, newBio):
@@ -114,7 +108,9 @@ def getUser(username):
 
 
 #Checks the user's username and password with the one in the database and returns true or false
-def passwordCheck(username,password):
+def login():
+    username = input("Username: ")
+    password = input("Password: ")
     fpdatabase = connection.fpdatabase()
     my_cursor = fpdatabase.cursor()
     sql = "SELECT password FROM user WHERE userID = %s" 

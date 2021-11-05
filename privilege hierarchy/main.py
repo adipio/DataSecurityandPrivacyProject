@@ -1,4 +1,5 @@
 import connection
+import Signup
 
 #Adds a user to the user data base ant then returns true if they were added correctly
 def addFaculty(firstName, lastName, email, job):
@@ -78,12 +79,13 @@ def viewStudents():
 
 if __name__ == "__main__":
 
-    #first = input("First")
-    #last = input("Last")
-    #email = input("email")
-    #job = input("job")
-    #print("hello")
-    #addFaculty(first,last,email, job)
+    userType = input("Are you a new user or a returning user? [N/R]")
+
+    if(userType == "R"):
+        Signup.login()
+    else:
+        Signup.signUp()
+
 
     addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
     addCourse("className", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
