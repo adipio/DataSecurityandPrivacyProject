@@ -46,7 +46,7 @@ def deleteCourse(courseID): # what do we wanna delete by on each table?
     print("Course deleted")
     my_cursor.close()
 
-def deleteStudent(): # what do we wanna delete by on each table?
+def deleteStudent(studentID): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM students WHERE userID = %s"
