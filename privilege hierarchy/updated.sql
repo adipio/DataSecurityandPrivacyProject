@@ -29,6 +29,17 @@ CREATE TABLE `universitydb`.`courses` (
   `syllabus` VARCHAR(45) NULL
   );
 
+CREATE TABLE `universitydb`.`enrollments` (
+  `studentID` int NOT NULL,
+  `classID` int NOT NULL,
+  CONSTRAINT PK_enrollments PRIMARY KEY (
+    studentID,
+    classID
+  ),
+  FOREIGN KEY (studentID) REFERENCES students(studentID),
+  FOREIGN KEY (classID) REFERENCES courses(classID)
+  );
+
 CREATE TABLE `universitydb`.`students` (
   `firstName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NOT NULL,
