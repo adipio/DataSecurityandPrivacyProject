@@ -1,10 +1,10 @@
 CREATE DATABASE universitydb;
 
 CREATE TABLE `unveristydb`.`users` (
+  `userID` int NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `role` int NOT NULL,
-  `userID` int NOT NULL AUTO_INCREMENT
+  `role` int NOT NULL  
    );
 
 CREATE TABLE `universitydb`.`faculty` (
