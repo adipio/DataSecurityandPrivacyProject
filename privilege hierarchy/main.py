@@ -26,7 +26,7 @@ def addStudent(firstName, lastName, studentID, creditHours, year, age, Advisor):
     universitydb.commit()
     my_cursor.close()
 
-def deleteFaculty(facultyID): # what do we wanna delete by on each table?
+def deleteFaculty(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM faculty WHERE userID = %s"
@@ -36,7 +36,7 @@ def deleteFaculty(facultyID): # what do we wanna delete by on each table?
     print("Faculty deleted")
     my_cursor.close()
 
-def deleteCourse(courseID): # what do we wanna delete by on each table?
+def deleteCourse(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM courses WHERE userID = %s"
@@ -46,7 +46,7 @@ def deleteCourse(courseID): # what do we wanna delete by on each table?
     print("Course deleted")
     my_cursor.close()
 
-def deleteStudent(studentID): # what do we wanna delete by on each table?
+def deleteStudent(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM students WHERE userID = %s"
@@ -61,23 +61,31 @@ def viewFaculty():
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM faculty")
     results = my_cursor.fetchall()
-    #return results
+    for row in results:
+        print(row[0] , row[1], row[2], row[3])
 
 def viewCourses():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
-    #return results
+    for row in results:
+        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 def viewStudents():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM students")
     results = my_cursor.fetchall()
-    #return results
+    for row in results:
+        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
 
 if __name__ == "__main__":
+
+    # viewFaculty() works
+    #viewCourses() works
+    #viewStudents()
+
 
     userType = input("Are you a new user or a returning user? [N/R]")
 
