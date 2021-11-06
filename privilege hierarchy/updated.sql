@@ -12,7 +12,9 @@ CREATE TABLE `universitydb`.`faculty` (
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `JOB` VARCHAR(45) NOT NULL
+  `JOB` VARCHAR(45) NOT NULL,
+  `facultyID` int NOT NULL AUTO_INCREMENT,
+   KEY(facultyID)
   );
 
 CREATE TABLE `universitydb`.`courses` ( 
