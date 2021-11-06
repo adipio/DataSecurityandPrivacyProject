@@ -22,22 +22,12 @@ CREATE TABLE `universitydb`.`courses` (
   `professorName` VARCHAR(45) NULL,
   `studentList` VARCHAR(450) NULL,
   `roomNumber` VARCHAR(45) NULL,
-  `classID` VARCHAR(45) NULL,
+  `classID` int NOT NULL,
   `creditHours` VARCHAR(45) NULL,
   `roomCapacity` int,
   `numStudents` VARCHAR(45) NULL,
-  `syllabus` VARCHAR(45) NULL
-  );
-
-CREATE TABLE `universitydb`.`enrollments` (
-  `studentID` int NOT NULL,
-  `classID` int NOT NULL,
-  CONSTRAINT PK_enrollments PRIMARY KEY (
-    studentID,
-    classID
-  ),
-  FOREIGN KEY (studentID) REFERENCES students(studentID),
-  FOREIGN KEY (classID) REFERENCES courses(classID)
+  `syllabus` VARCHAR(45) NULL,
+  PRIMARY KEY(`classID`)
   );
 
 CREATE TABLE `universitydb`.`students` (
@@ -47,5 +37,18 @@ CREATE TABLE `universitydb`.`students` (
   `creditHours` VARCHAR(45) NULL,
   `year` int NOT NULL,
   `age` int NOT NULL,
-  `Advisor` VARCHAR(45) NULL
+  `Advisor` VARCHAR(45) NULL,
+  PRIMARY KEY (`studentID`)
+  );
+
+CREATE TABLE `universitydb`.`enrollments` (
+  `Student` int NOT NULL,
+  `Course` int NOT NULL,
+  PRIMARY KEY (`Student`,`Course`),
+  CONSTRAINT `constr_enrollment_student_fk`
+    FOREIGN KEY `student_FK` (`Student`) REFERENCES `students`(`studentID`)
+    ON DELETE CASCADE,
+   CONSTRAINT `Constr_enrollment_course_fk`
+        FOREIGN KEY `course_FK` (`Course`) REFERENCES `courses` (`classID`)
+        ON DELETE CASCADE
   );
