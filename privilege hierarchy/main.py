@@ -99,16 +99,35 @@ def viewStudents():
 def getRole(username):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "SELECT role FROM users WHERE username = %s"
-    my_cursor.execute(sql, username)
-    results = my_cursor.fetchall()
-    return results
+    sql = "SELECT role FROM users WHERE username=%s"
+    my_cursor.execute(sql, (username,))
+    results = my_cursor.fetchone()
+    return results[0]
+
+def admin():
+    #everything
+
+def dean():
+    #can add and delete professors and advisors
+
+def advisor():
+    #add or remove students from courses, change students program
+
+def Professor():
+    #change the course title and syllabus
+
+def Student():
+    #only able to view courses
+
+
 
 if __name__ == "__main__":
 
-    viewFaculty()
+    #viewFaculty()
     #viewCourses()
     #viewStudents()
+
+    getRole("Antonio")
 
     #Signup.userExists("Antonio")
     addFaculty("Ant", "D", "adipio_stu@kent.edu", "code")  # works
