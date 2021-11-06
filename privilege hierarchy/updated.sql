@@ -1,10 +1,11 @@
 CREATE DATABASE universitydb;
 
-CREATE TABLE `unveristydb`.`users` (
-  `userID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `universitydb`.`users` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `role` int NOT NULL  
+  `role` int NOT NULL,  
+  `userID` int NOT NULL AUTO_INCREMENT,
+   KEY(userID)
    );
 
 CREATE TABLE `universitydb`.`faculty` (
