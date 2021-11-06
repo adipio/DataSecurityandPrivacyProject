@@ -1,11 +1,19 @@
 import connection
 import Signup
 
-def addUser(username, password, role):
+def addUser(username, password):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,%s)"
-    my_cursor.execute(sqlStuff, (username, password, role))
+    sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,0)"
+    my_cursor.execute(sqlStuff, (username, password))
+    universitydb.commit()
+    my_cursor.close()
+
+def changeRole(username, role):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sql = "UPDATE users SET role = %s WHERE username = %s"
+    my_cursor.execute(sql, (username,role))
     universitydb.commit()
     my_cursor.close()
 
