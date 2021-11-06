@@ -78,7 +78,7 @@ def viewFaculty():
     my_cursor.execute("SELECT * FROM faculty")
     results = my_cursor.fetchall()
     for row in results:
-        print(row[0] , row[1], row[2], row[3])
+        print(row[0] , row[1], row[2], row[3], row[4])
 
 def viewCourses():
     universitydb = connection.universitydb()
@@ -106,11 +106,12 @@ def getRole(username):
 
 if __name__ == "__main__":
 
-    #viewFaculty()
+    viewFaculty()
     #viewCourses()
     #viewStudents()
 
     #Signup.userExists("Antonio")
+    addFaculty("Ant", "D", "adipio_stu@kent.edu", "code")  # works
 
     addUser("Antonio", "1234", 4)
     userType = input("Are you a new user or a returning user? [N/R]")
