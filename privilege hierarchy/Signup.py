@@ -1,6 +1,6 @@
 import mysql.connector
 import re
-from passlib.hash import bcrypt
+#from passlib.hash import bcrypt
 import connection
 
 

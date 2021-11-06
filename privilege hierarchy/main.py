@@ -27,10 +27,13 @@ def addStudent(firstName, lastName, studentID, creditHours, year, age, Advisor):
     my_cursor.close()
 
 def deleteFaculty(): # what do we wanna delete by on each table?
+    # Delete based on ID
+    # Print out the ID
+
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM faculty WHERE userID = %s"
-    user = (input("Enter userId you wish to delete: "),)
+    sql = "DELETE FROM faculty WHERE facultyID = %s"
+    user = (input("Enter FacultyID you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
     print("Faculty deleted")
@@ -39,8 +42,8 @@ def deleteFaculty(): # what do we wanna delete by on each table?
 def deleteCourse(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM courses WHERE userID = %s"
-    user = (input("Enter userId you wish to delete: "),)
+    sql = "DELETE FROM courses WHERE courseID = %s"
+    user = (input("Enter CourseID you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
     print("Course deleted")
@@ -50,10 +53,10 @@ def deleteStudent(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM students WHERE userID = %s"
-    user = (input("Enter userId you wish to delete: "),)
+    user = (input("Enter StudentID you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
-    print("Course deleted")
+    print("Student deleted")
     my_cursor.close()
 
 def viewFaculty():
@@ -82,8 +85,12 @@ def viewStudents():
 
 if __name__ == "__main__":
 
-    # viewFaculty() works
-    #viewCourses() works
+    addFaculty("Ant", "D", "adipio_stu@kent.edu", "code")  # works
+    viewFaculty()   # works
+    deleteFaculty() # Needs testing
+    viewFaculty()
+    
+    #viewCourses()  # works
     #viewStudents()
 
 

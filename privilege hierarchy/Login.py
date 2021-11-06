@@ -1,5 +1,5 @@
 import mysql.connector 
-from passlib.hash import bcrypt
+#from passlib.hash import bcrypt
 import connection
 
 #checks to see if the user is alredy registered in the database //works
