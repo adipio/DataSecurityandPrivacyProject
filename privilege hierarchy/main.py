@@ -1,6 +1,14 @@
 import connection
 import Signup
 
+def addUser(username, password, role):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,%s)"
+    my_cursor.execute(sqlStuff, (username, password, role))
+    universitydb.commit()
+    my_cursor.close()
+
 #Adds a user to the user data base ant then returns true if they were added correctly
 def addFaculty(firstName, lastName, email, job):
     universitydb = connection.universitydb()
@@ -82,11 +90,13 @@ def viewStudents():
 
 if __name__ == "__main__":
 
-    # viewFaculty() works
-    #viewCourses() works
+    #viewFaculty()
+    #viewCourses()
     #viewStudents()
 
+    #Signup.userExists("Antonio")
 
+    addUser("Antonio", "1234", 4)
     userType = input("Are you a new user or a returning user? [N/R]")
 
     if(userType == "R"):
@@ -94,7 +104,7 @@ if __name__ == "__main__":
     else:
         Signup.signUp()
 
-
+    addUser("Antonio", "1234", 4)
     addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
     addCourse("className", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
     addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
