@@ -80,6 +80,14 @@ def viewStudents():
     for row in results:
         print(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
 
+def getRole(username):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sql = "SELECT role FROM users WHERE username = %s"
+    my_cursor.execute(sql, username)
+    results = my_cursor.fetchall()
+    return results
+
 if __name__ == "__main__":
 
     # viewFaculty() works
