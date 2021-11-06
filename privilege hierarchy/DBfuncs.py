@@ -102,3 +102,30 @@ def getRole(username):
     my_cursor.execute(sql, (username,))
     results = my_cursor.fetchone()
     return results[0]
+
+def enrollStudent(studentID,classID):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sql = "INSERT INTO enrollments (Student,Course) VALUES (%s,%s)"
+    my_cursor.execute(sql, (studentID,classID))
+    universitydb.commit()
+    my_cursor.close()
+
+def viewCoursesIn(studentID):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sql = "SELECT courses.classID, courses.className from courses join enrollments ON courses.classID = enrollments.Course where enrollments.Student = %s"
+    my_cursor.execute(sql, (studentID,))
+    results = my_cursor.fetchall()
+    for row in results:
+        print (row[0],row[1])
+
+def viewStudentsIn(classID):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sql = "SELECT students.studentID from students join enrollments ON students.studentID = enrollments.Student where enrollments.Course = %s"
+    my_cursor.execute(sql, (classID,))
+    results = my_cursor.fetchall()
+    for row in results:
+        print (row[0])
+    
