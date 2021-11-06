@@ -32,25 +32,31 @@ def passwordChecker(password):
     else:
         return True
 
+'''
 #Hashes and returns a password
 def passHash(password):
     hashed_password = bcrypt.hash(password)
     return hashed_password
+'''
 
 #checks to see if the user is alredy registered in the database
 def userExists(username):
 
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "SELECT * FROM user WHERE userID= %s"
+    sql = "SELECT * FROM users WHERE username= %s"
 
     my_cursor.execute(sql, (username,))
     results = my_cursor.fetchone()
     my_cursor.close()
     if results != None:
+        print("true")
         return True
+
     else:
+        print("false")
         return False
+
 
 #Adds a user to the user data base ant then returns true if they were added correctly
 def addUser(username, password):
