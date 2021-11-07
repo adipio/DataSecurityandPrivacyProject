@@ -20,7 +20,6 @@ CREATE TABLE `universitydb`.`faculty` (
 CREATE TABLE `universitydb`.`courses` ( 
   `className` VARCHAR(45) NULL,
   `professorName` VARCHAR(45) NULL,
-  `studentList` VARCHAR(450) NULL,
   `roomNumber` VARCHAR(45) NULL,
   `classID` int NOT NULL,
   `creditHours` VARCHAR(45) NULL,

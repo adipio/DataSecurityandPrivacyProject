@@ -51,7 +51,6 @@ def addFaculty():
 def addCourse():
     className = input("Enter the class name: ")
     professorName = input("Enter the professor's name: ")
-    studentList = input("Enter the list of students enrolled: ")
     roomNumber = input("Enter the class room number: ")
     classID = input("Enter the class ID number: ")
     creditHours = input("Enter the creditHours: ")
@@ -60,8 +59,8 @@ def addCourse():
     syllabus = input("Add syllabus: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sqlStuff = "INSERT INTO courses (className, professorName, studentList, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    my_cursor.execute(sqlStuff, (className, professorName, studentList, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus))
+    sqlStuff = "INSERT INTO courses (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    my_cursor.execute(sqlStuff, (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus))
     universitydb.commit()
     my_cursor.close()
 
@@ -83,7 +82,7 @@ def addStudent(): #works
 def deleteFaculty(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM faculty WHERE userID = %s"
+    sql = "DELETE FROM faculty WHERE facultyID = %s"
     user = (input("Enter userId you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
@@ -93,7 +92,7 @@ def deleteFaculty(): # what do we wanna delete by on each table?
 def deleteCourse(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM courses WHERE userID = %s"
+    sql = "DELETE FROM courses WHERE classID = %s"
     user = (input("Enter userId you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
@@ -103,7 +102,7 @@ def deleteCourse(): # what do we wanna delete by on each table?
 def deleteStudent(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM students WHERE userID = %s"
+    sql = "DELETE FROM students WHERE studentID = %s"
     user = (input("Enter userId you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
