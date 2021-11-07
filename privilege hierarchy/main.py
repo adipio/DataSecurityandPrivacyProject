@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 print("Admin")
                 print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
                 print("[viewCourses], [viewStudents], [changeRole], [enrollStudent], [coursesIn], [studentsIn]")
-                input = input("Selection:")
+                 input = input("Selection:")
                 if(input == "addUser"):
                     DBfuncs.addUser()
                 elif(input == "addFaculty"):
@@ -52,15 +52,19 @@ if __name__ == "__main__":
                     DBfuncs.addCourse()
                 elif(input == "addStudent"):
                     DBfuncs.addStudent()
+                elif(input == "deleteUser"):
+                    DBfuncs.deleteUser()
+                elif(input == "deleteFaculty"):
+                    DBfuncs.deleteFaculty()
                 elif(input == "deleteCourse"):
                     DBfuncs.deleteCourse()
                 elif(input == "deleteStudent"):
                     DBfuncs.deleteStudent()
-                elif(input == "viewFaculty"):
+                elif (input == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif(input == "viewCourses"):
+                elif (input == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif(input == "viewStudents"):
+                elif (input == "viewStudents"):
                     DBfuncs.viewStudents()
                 elif(input == "changeRole"):
                     DBfuncs.changeRole()
@@ -74,6 +78,8 @@ if __name__ == "__main__":
                 elif(input == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
+                 else:
+                    print("invalid input")
             case 3:
                 print("Dean")
                 print("What would you like to do [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
