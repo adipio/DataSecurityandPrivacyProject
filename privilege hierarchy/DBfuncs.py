@@ -7,6 +7,7 @@ def addUser(username, password):
     my_cursor.execute(sqlStuff, (username, password))
     universitydb.commit()
     my_cursor.close()
+    return True
 
 def changeRole(username, role):
     universitydb = connection.universitydb()
