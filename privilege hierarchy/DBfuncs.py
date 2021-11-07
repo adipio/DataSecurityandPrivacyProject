@@ -59,8 +59,8 @@ def addCourse():
     syllabus = input("Add syllabus: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sqlStuff = "INSERT INTO courses (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-    my_cursor.execute(sqlStuff, (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus))
+    sqlStuff = "INSERT INTO courses (className, professorName, roomNumber, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+    my_cursor.execute(sqlStuff, (className, professorName, roomNumber, creditHours, roomCapacity, numStudents, syllabus))
     universitydb.commit()
     my_cursor.close()
 
@@ -74,8 +74,8 @@ def addStudent(): #works
     Advisor = input("What is the student's advisor: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sqlStuff = "INSERT INTO students (firstName, lastName, studentID, creditHours, year, age, Advisor) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-    my_cursor.execute(sqlStuff, (firstName, lastName, studentID, creditHours, year, age, Advisor))
+    sqlStuff = "INSERT INTO students (firstName, lastName, creditHours, year, age, Advisor) VALUES (%s,%s,%s,%s,%s,%s)"
+    my_cursor.execute(sqlStuff, (firstName, lastName, creditHours, year, age, Advisor))
     universitydb.commit()
     my_cursor.close()
 
@@ -123,7 +123,7 @@ def viewCourses():
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
     for row in results:
-        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 def viewStudents():
     universitydb = connection.universitydb()

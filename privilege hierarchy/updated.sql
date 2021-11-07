@@ -14,7 +14,7 @@ CREATE TABLE `universitydb`.`faculty` (
   `email` VARCHAR(45) NOT NULL,
   `JOB` VARCHAR(45) NOT NULL,
   `facultyID` int NOT NULL AUTO_INCREMENT,
-   KEY(facultyID)
+   PRIMARY KEY(facultyID)
   );
 
 CREATE TABLE `universitydb`.`courses` ( 
@@ -26,17 +26,18 @@ CREATE TABLE `universitydb`.`courses` (
   `roomCapacity` int,
   `numStudents` VARCHAR(45) NULL,
   `syllabus` VARCHAR(45) NULL,
+  `classID` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(`classID`)
   );
 
 CREATE TABLE `universitydb`.`students` (
   `firstName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NOT NULL,
-  `studentID` int NOT NULL,
   `creditHours` VARCHAR(45) NULL,
   `year` int NOT NULL,
   `age` int NOT NULL,
   `Advisor` VARCHAR(45) NULL,
+  `studentID` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`studentID`)
   );
 
