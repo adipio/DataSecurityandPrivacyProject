@@ -1,7 +1,6 @@
 import connection
 import Login
 import DBfuncs
-
 '''
 def admin():
     #everything
