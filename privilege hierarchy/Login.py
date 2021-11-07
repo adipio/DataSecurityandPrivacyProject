@@ -83,6 +83,7 @@ def getUser(username):
     results = my_cursor.fetchone()
     return results
 
+
 def passwordCheck(username, password):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()

@@ -1,6 +1,7 @@
 import mysql.connector
 
 def universitydb():
+
     try:
         results = mysql.connector.connect(
         host = "localhost",

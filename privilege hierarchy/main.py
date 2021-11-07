@@ -23,6 +23,7 @@ def Student():
 if __name__ == "__main__":
 
     #viewFaculty()
+
     #viewCourses()
     #viewStudents()
 
