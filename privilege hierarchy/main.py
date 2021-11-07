@@ -36,7 +36,18 @@ if __name__ == "__main__":
 
 
     if(userType == "R"):
-        Login.login()
+        userRole = Login.login()
+        if(userRole == 4):
+            print("Admin")
+        elif(userRole == 3):
+            print("Dean")
+        elif(userRole == 2):
+            print("Advisor")
+        elif(userRole == 1):
+            print("Professor")
+        else:
+            print("Student")
+
     else:
         Login.signUp()
 
