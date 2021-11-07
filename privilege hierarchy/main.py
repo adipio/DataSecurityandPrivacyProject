@@ -52,10 +52,18 @@ if __name__ == "__main__":
                     DBfuncs.addCourse()
                 elif(input == "addStudent"):
                     DBfuncs.addStudent()
-
                 elif(input == "changeRole"):
                     DBfuncs.changeRole()
-
+                elif(input == "enrollStudent"):
+                    studentid = input ("Enter student id:")
+                    courseid = input ("Enter course id:")
+                    DBfuncs.enrollStudent(studentid,courseid)
+                elif(input == "coursesIn"):
+                    studentid = input("Enter student id:")
+                    DBfuncs.viewCoursesIn(studentid)
+                elif(input == "studentsIn"):
+                    courseid = input("Enter course id:")
+                    DBfuncs.viewStudentsIn(courseid)
             case 3:
                 print("Dean")
             case 2:

@@ -59,7 +59,7 @@ def addCourse():
     syllabus = input("Add syllabus: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sqlStuff = "INSERT INTO courses (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    sqlStuff = "INSERT INTO courses (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
     my_cursor.execute(sqlStuff, (className, professorName, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus))
     universitydb.commit()
     my_cursor.close()
@@ -123,7 +123,7 @@ def viewCourses():
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
     for row in results:
-        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
 
 def viewStudents():
     universitydb = connection.universitydb()
