@@ -41,9 +41,21 @@ if __name__ == "__main__":
         match userRole:
             case 4:
                 print("Admin")
-                print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent]")
-                print("[deleteCourse], [deleteStudent], [viewFaculty]")
-                print("[viewFaculty],[viewCourses], [viewStudents] idk what the last 3 functions do")
+                print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
+                print("[viewFaculty],[viewCourses], [viewStudents], [changeRole] idk what the last 3 functions do")
+                input = input("Selection:")
+                if(input == "addUser"):
+                    DBfuncs.addUser()
+                elif(input == "addFaculty"):
+                    DBfuncs.addFaculty()
+                elif(input == "addCourse"):
+                    DBfuncs.addCourse()
+                elif(input == "addStudent"):
+                    DBfuncs.addStudent()
+
+                elif(input == "changeRole"):
+                    DBfuncs.changeRole()
+
             case 3:
                 print("Dean")
             case 2:
@@ -68,7 +80,7 @@ if __name__ == "__main__":
     else:
         Login.signUp()
 
-    DBfuncs.addUser("Antonio", "1234")
-    DBfuncs.addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
-    DBfuncs.addCourse("test", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
-    DBfuncs.addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
+    #DBfuncs.addUser("Antonio", "1234")
+    #DBfuncs.addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
+    #DBfuncs.addCourse("test", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
+    #DBfuncs.addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
