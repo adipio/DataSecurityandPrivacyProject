@@ -37,6 +37,18 @@ if __name__ == "__main__":
 
     if(userType == "R"):
         userRole = Login.login()
+        match userRole:
+            case 4:
+                print("4")
+            case 3:
+                print("3")
+            case 2:
+                print("2")
+            case 1:
+                print("1")
+            case 0:
+                print("0")
+
         if(userRole == 4):
             print("Admin")
         elif(userRole == 3):
