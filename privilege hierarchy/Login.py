@@ -9,7 +9,7 @@ import DBfuncs
 def userExists(username):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "SELECT * FROM user WHERE userID= %s"
+    sql = "SELECT * FROM users WHERE userID= %s"
     my_cursor.execute(sql, (username,))
     results = my_cursor.fetchone()
     if results != None:
@@ -21,7 +21,7 @@ def userExists(username):
 def getUser(username):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    q = "SELECT * FROM user WHERE userID = %s"
+    q = "SELECT * FROM users WHERE userID = %s"
     my_cursor.execute(q,(username,))
     results = my_cursor.fetchone()
     return results
