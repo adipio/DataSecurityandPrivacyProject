@@ -30,7 +30,8 @@ def changeRole(): #this does not work
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "UPDATE users SET role = %s WHERE username = %s"
-    my_cursor.execute(sql, (username,roleNum))
+    my_cursor.execute(sql, (role,username))
+    
     universitydb.commit()
     my_cursor.close()
 
