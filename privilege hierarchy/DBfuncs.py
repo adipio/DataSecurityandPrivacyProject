@@ -134,7 +134,6 @@ def viewStudents():
         print(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
 
 def getRole(username):
-
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "SELECT role FROM users WHERE username=%s"
@@ -142,7 +141,7 @@ def getRole(username):
     results = my_cursor.fetchone()
     return results[0]
 
-def enrollStudent(studentID,classID):
+def enrollStudent(studentID,classID): #need to add this
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "INSERT INTO enrollments (Student,Course) VALUES (%s,%s)"

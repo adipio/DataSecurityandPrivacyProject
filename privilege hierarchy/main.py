@@ -52,6 +52,15 @@ if __name__ == "__main__":
                     DBfuncs.addCourse()
                 elif(input == "addStudent"):
                     DBfuncs.addStudent()
+                #delete fucntions
+
+                elif(input == "viewFaculty"):
+                    DBfuncs.viewFaculty()
+                elif(input == "viewCourses"):
+                    DBfuncs.viewCourses()
+                elif(input == "viewStudents"):
+                    DBfuncs.viewStudents()
+
 
                 elif(input == "changeRole"):
                     DBfuncs.changeRole()
