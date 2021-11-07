@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 print("Admin")
                 print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
                 print("[viewCourses], [viewStudents], [changeRole], [enrollStudent], [coursesIn], [studentsIn]")
-                 input = input("Selection:")
+                input = input("Selection:")
                 if(input == "addUser"):
                     DBfuncs.addUser()
                 elif(input == "addFaculty"):
@@ -78,7 +78,7 @@ if __name__ == "__main__":
                 elif(input == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
-                 else:
+                else:
                     print("invalid input")
             case 3:
                 print("Dean")
