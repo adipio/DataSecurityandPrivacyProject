@@ -101,7 +101,7 @@ def deleteCourse(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM courses WHERE classID = %s"
-    user = (input("Enter userId you wish to delete: "),)
+    user = (input("Enter classId you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
 
@@ -111,7 +111,7 @@ def deleteStudent(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM students WHERE studentID = %s"
-    user = (input("Enter userId you wish to delete: "),)
+    user = (input("Enter studentId you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
     print("Student deleted")
@@ -131,7 +131,7 @@ def viewCourses():
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
     for row in results:
-        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
 
 def viewStudents():
     universitydb = connection.universitydb()
@@ -170,9 +170,9 @@ def viewCoursesIn(studentID):
 def viewStudentsIn(classID):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "SELECT students.studentID from students join enrollments ON students.studentID = enrollments.Student where enrollments.Course = %s"
+    sql = "SELECT students.studentID, students.lastName from students join enrollments ON students.studentID = enrollments.Student where enrollments.Course = %s"
     my_cursor.execute(sql, (classID,))
     results = my_cursor.fetchall()
     for row in results:
-        print (row[0])
+        print (row[0], row[1])
     
