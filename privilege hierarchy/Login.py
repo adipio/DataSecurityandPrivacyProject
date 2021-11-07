@@ -156,6 +156,13 @@ def userExists(username):
     else:
         return False
 
+def add(username, password):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,0)"
+    my_cursor.execute(sqlStuff, (username, password))
+    universitydb.commit()
+    my_cursor.close()
 
 #checks to see if the userID is taken and adds the user if the user does not exist.
 def signUp():
@@ -174,7 +181,7 @@ def signUp():
 
     #if password == password2 and passwordChecker(password): password hashing later
     if(password == password2):
-        if DBfuncs.addUser(userName, password):
+        if add(userName, password):
             print("User was successfully added to the database")
             return True
         else:
