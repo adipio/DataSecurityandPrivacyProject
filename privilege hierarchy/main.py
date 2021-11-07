@@ -37,18 +37,23 @@ if __name__ == "__main__":
 
     if(userType == "R"):
         userRole = Login.login()
+
         match userRole:
             case 4:
-                print("4")
+                print("Admin")
+                print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent]")
+                print("[deleteCourse], [deleteStudent], [viewFaculty]")
+                print("[viewFaculty],[viewCourses], [viewStudents] idk what the last 3 functions do")
             case 3:
-                print("3")
+                print("Dean")
             case 2:
-                print("2")
+                print("Advisor")
             case 1:
-                print("1")
+                print("Professor")
             case 0:
-                print("0")
+                print("Student")
 
+        '''
         if(userRole == 4):
             print("Admin")
         elif(userRole == 3):
@@ -59,11 +64,11 @@ if __name__ == "__main__":
             print("Professor")
         else:
             print("Student")
-
+        '''
     else:
         Login.signUp()
 
     DBfuncs.addUser("Antonio", "1234")
     DBfuncs.addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
-    DBfuncs.addCourse("className", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
+    DBfuncs.addCourse("test", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
     DBfuncs.addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
