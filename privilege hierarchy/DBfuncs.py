@@ -1,6 +1,8 @@
 import connection
 
-def addUser(username, password):
+def addUser():
+    username = input("Input a username to add: ")
+    password = input("Input a password for a user: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,0)"
@@ -9,16 +11,36 @@ def addUser(username, password):
     my_cursor.close()
     return True
 
-def changeRole(username, role):
+def changeRole(): #this does not work
+    username = input("Enter a username to change the role of: ")
+    role = input("What role would you like to assign to the user? [Dean], [Advisor], [Professor]")
+    roleNum = "0"
+    if(role == "Dean"):
+        print("role number 3")
+        roleNum = "3"
+    elif(role == "Advisor"):
+        print("role number 2")
+        roleNum = "2"
+    elif(role == "Professor"):
+        print("role number 1")
+        roleNum = "1"
+    else:
+        print("Invlaid role try again")
+
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "UPDATE users SET role = %s WHERE username = %s"
     my_cursor.execute(sql, (role,username))
+    
     universitydb.commit()
     my_cursor.close()
 
 #Adds a user to the user data base ant then returns true if they were added correctly
-def addFaculty(firstName, lastName, email, job):
+def addFaculty():
+    firstName = input("Enter the faculty member's  first name: ")
+    lastName = input("Enter the Faculty member's last name: ")
+    email = input("Enter the faculty member's email: ")
+    job = input("enter the faculty member's job: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sqlStuff = "INSERT INTO faculty (firstName, lastName, email, JOB) VALUES (%s,%s,%s,%s)"
@@ -26,7 +48,16 @@ def addFaculty(firstName, lastName, email, job):
     universitydb.commit()
     my_cursor.close()
 
-def addCourse(className, professorName, studentList, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus):
+def addCourse():
+    className = input("Enter the class name: ")
+    professorName = input("Enter the professor's name: ")
+    studentList = input("Enter the list of students enrolled: ")
+    roomNumber = input("Enter the class room number: ")
+    classID = input("Enter the class ID number: ")
+    creditHours = input("Enter the creditHours: ")
+    roomCapacity = input("Enter the room capacity: ")
+    numStudents = input("Enter the number of students: ")
+    syllabus = input("Add syllabus: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sqlStuff = "INSERT INTO courses (className, professorName, studentList, roomNumber, classID, creditHours, roomCapacity, numStudents, syllabus) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -34,7 +65,14 @@ def addCourse(className, professorName, studentList, roomNumber, classID, credit
     universitydb.commit()
     my_cursor.close()
 
-def addStudent(firstName, lastName, studentID, creditHours, year, age, Advisor):
+def addStudent(): #works
+    firstName = input("Enter the student's first name: ")
+    lastName = input("Enter the student's last name: ")
+    studentID = input("Enter the student's ID number: ")
+    creditHours = input("Enter the credit hours: ")
+    year = input("What is the year: ")
+    age = input("Enter the student's age: ")
+    Advisor = input("What is the student's advisor: ")
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sqlStuff = "INSERT INTO students (firstName, lastName, studentID, creditHours, year, age, Advisor) VALUES (%s,%s,%s,%s,%s,%s,%s)"
