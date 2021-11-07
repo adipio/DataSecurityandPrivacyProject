@@ -52,9 +52,24 @@ if __name__ == "__main__":
                     DBfuncs.addCourse()
                 elif(input == "addStudent"):
                     DBfuncs.addStudent()
-
+                elif(input == "deleteUser"):
+                    DBfuncs.deleteUser()
+                elif(input == "deleteFaculty"):
+                    DBfuncs.deleteFaculty()
+                elif(input == "deleteCourse"):
+                    DBfuncs.deleteCourse()
+                elif(input == "deleteStudent"):
+                    DBfuncs.deleteStudent()
+                elif (input == "viewFaculty"):
+                    DBfuncs.viewFaculty()
+                elif (input == "viewCourses"):
+                    DBfuncs.viewCourses()
+                elif (input == "viewStudents"):
+                    DBfuncs.viewStudents()
                 elif(input == "changeRole"):
                     DBfuncs.changeRole()
+                else:
+                    print("invalid input")
 
             case 3:
                 print("Dean")
