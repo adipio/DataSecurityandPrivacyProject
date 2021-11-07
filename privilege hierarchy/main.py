@@ -19,6 +19,14 @@ def Student():
 
 '''
 
+def add(username, password):
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    sqlStuff = "INSERT INTO users (username, password, role) VALUES (%s,%s,0)"
+    my_cursor.execute(sqlStuff, (username, password))
+    universitydb.commit()
+    my_cursor.close()
+
 if __name__ == "__main__":
 
     #viewFaculty()
@@ -33,6 +41,7 @@ if __name__ == "__main__":
 
     #DBfuncs.addUser("Antonio", "1234")
     userType = input("Are you a new user or a returning user? [N/R]")
+
 
 
     if(userType == "R"):
@@ -173,7 +182,3 @@ if __name__ == "__main__":
     else:
         Login.signUp()
 
-    #DBfuncs.addUser("Antonio", "1234")
-    #DBfuncs.addFaculty("Ant", "D", "adipio_stu@kent.edu", "code") #works
-    #DBfuncs.addCourse("test", "professorName", "studentList", 1, 13, 16, 32, "numStudents", "syllabus") #works
-    #DBfuncs.addStudent("firstName", "lastName", 1, 16, 2021, 23, "Eddy") #works
