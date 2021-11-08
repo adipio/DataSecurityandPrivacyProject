@@ -69,45 +69,6 @@ def deleteUser(admin):
         print("User deleted")
         my_cursor.close()
 
-#Function That allows an admin to delete any post //done
-def deletePost(admin):
-    universitydb = connection.universitydb()
-    my_cursor = universitydb.cursor()
-    if admin == (1,):
-        sql = "DELETE FROM post WHERE postID = %s"
-        post = (input("Enter postId you wish to delete: "),)
-        my_cursor.execute(sql, post)
-        universitydb.commit()
-        print("post deleted")
-        my_cursor.close()
-
-#Function to allow users to delete their own posts if wanted. works but may need rework due to the user needing to know the id of the post //works
-def deleteSelfPost(postID, username):
-    universitydb = connection.universitydb()
-    my_cursor = universitydb.cursor()
-    sql = "DELETE FROM post WHERE postID = %s AND postUser = %s"
-    my_cursor.execute(sql, (postID, username,))
-    universitydb.commit()
-    my_cursor.close()
-
-#Function to get a user's first name last name and profile pic //done
-def getUserInfo(username):
-    universitydb = connection.universitydb()
-    my_cursor = universitydb.cursor()
-    sql = "SELECT firstName, lastName, profilePicture FROM user WHERE userID = %s"
-    my_cursor.execute(sql, (username,))
-    results = my_cursor.fetchone()
-    my_cursor.close()
-    return results
-
-#passes a user and a profile picture and sets the new profile picture
-def changeProfilePic(username, newPick):
-    universitydb = connection.universitydb()
-    my_cursor = universitydb.cursor()
-    update = "UPDATE user SET profilePicture = %s WHERE userID = %s"
-    my_cursor.execute(update, (newPick, username,))
-    universitydb.commit()
-
 #checks how strong a password is returns true if it is strong
 def passwordChecker(password):
     #check the password length
