@@ -97,6 +97,7 @@ def passwordChecker(password):
     else:
         return True
 
+
 '''
 #Hashes and returns a password
 def passHash(password):
