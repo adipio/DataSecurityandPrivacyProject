@@ -117,29 +117,41 @@ def deleteStudent(): # what do we wanna delete by on each table?
     print("Student deleted")
     my_cursor.close()
 
+def viewUsers():
+    universitydb = connection.universitydb()
+    my_cursor = universitydb.cursor()
+    my_cursor.execute("SELECT * FROM users")
+    results = my_cursor.fetchall()
+    print("Username\t","Role\t", "UserID\t")
+    for row in results:
+        print(row[0],"\t\t", row[2],"\t", row[3])
+
 def viewFaculty():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM faculty")
     results = my_cursor.fetchall()
+    print("Firstname\tLastname\tEmail\t\t\tJob\tFacultyID")
     for row in results:
-        print(row[0] , row[1], row[2], row[3], row[4])
+        print(row[0] +"\t%s" %row[1] + "\t%s" %row[2] + "\t\t\t%s" %row[3]+"\t%s" %row[4])
 
 def viewCourses():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM courses")
     results = my_cursor.fetchall()
+    print("Classname\tProfessorname\tRoomnumber\tCreditHours\tRoomcapacity\tNumStudents\tsyllabus\tClassID")
     for row in results:
-        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+        print(row[0]+ "\t%s" %row[1] + "\t%s" %row[2]+"\t%s" %row[3]+"\t%s" %row[4]+"\t%s" %row[5]+"\t%s" %row[6]+"\t%s" %row[7])
 
 def viewStudents():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     my_cursor.execute("SELECT * FROM students")
     results = my_cursor.fetchall()
+    print("Firstname\tLastname\tCredithours\tYear\tAge\tAdvisor\tStdentID")
     for row in results:
-        print(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+        print(row[0]+ "\t%s" %row[1]+ "\t%s" %row[2]+ "\t%s" %row[3]+ "\t%s" %row[4]+ "\t%s" %row[5]+ "\t%s"%row[6])
 
 def getRole(username):
 
