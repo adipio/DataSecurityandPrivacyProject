@@ -124,6 +124,7 @@ def add(username, password):
     my_cursor.execute(sqlStuff, (username, password))
     universitydb.commit()
     my_cursor.close()
+    return True
 
 #checks to see if the userID is taken and adds the user if the user does not exist.
 def signUp():
@@ -146,7 +147,6 @@ def signUp():
             print("User was successfully added to the database")
             return True
         else:
-            print("Failed to add user")
             return False
     #else:
         #print("Passwords don't match")

@@ -80,8 +80,8 @@ if __name__ == "__main__":
                 elif(input == "changeRole"):
                     DBfuncs.changeRole()
                 elif(input == "enrollStudent"):
-                    studentid = input ("Enter student id:")
-                    courseid = input ("Enter course id:")
+                    studentid = input("Enter student id:")
+                    courseid = input("Enter course id:")
                     DBfuncs.enrollStudent(studentid,courseid)
                 elif(input == "coursesIn"):
                     studentid = input("Enter student id:")
@@ -94,7 +94,7 @@ if __name__ == "__main__":
             case 3:
                 print("Dean")
                 print("What would you like to do [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
-                print("[viewCourses], [viewStudents], [enrollStudent], [coursesIn], [studentsIn]")
+                print("[deleteCourse],[deleteUser],[viewUsers],[viewCourses], [viewStudents], [enrollStudent], [coursesIn], [studentsIn]")
                 input = input("Selection:")
                 if(input == "addFaculty"):
                     DBfuncs.addFaculty()
