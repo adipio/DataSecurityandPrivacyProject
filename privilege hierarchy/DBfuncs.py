@@ -82,8 +82,8 @@ def addStudent(): #works
 def deleteUser():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "DELETE FROM users WHERE username= %s"
-    user = (input("Enter username you wish to delete: "),)
+    sql = "DELETE FROM users WHERE userID= %s"
+    user = (input("Enter user ID you wish to delete: "),)
     my_cursor.execute(sql, user)
     universitydb.commit()
     my_cursor.close()
@@ -92,8 +92,8 @@ def deleteFaculty():
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM faculty WHERE facultyID = %s"
-    user = (input("Enter facultyID you wish to delete: "),)
-    my_cursor.execute(sql, user)
+    faculty = (input("Enter facultyID you wish to delete: "),)
+    my_cursor.execute(sql, faculty)
     universitydb.commit()
     my_cursor.close()
 
@@ -101,8 +101,8 @@ def deleteCourse(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM courses WHERE classID = %s"
-    user = (input("Enter userId you wish to delete: "),)
-    my_cursor.execute(sql, user)
+    classid = (input("Enter classId you wish to delete: "),)
+    my_cursor.execute(sql, classid)
     universitydb.commit()
 
     my_cursor.close()
@@ -111,8 +111,8 @@ def deleteStudent(): # what do we wanna delete by on each table?
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "DELETE FROM students WHERE studentID = %s"
-    user = (input("Enter userId you wish to delete: "),)
-    my_cursor.execute(sql, user)
+    student = (input("Enter studentId you wish to delete: "),)
+    my_cursor.execute(sql, student)
     universitydb.commit()
     print("Student deleted")
     my_cursor.close()
@@ -182,7 +182,7 @@ def viewCoursesIn(studentID):
 def viewStudentsIn(classID):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
-    sql = "SELECT students.studentID from students join enrollments ON students.studentID = enrollments.Student where enrollments.Course = %s"
+    sql = "SELECT students.studentID, students.lastName from students join enrollments ON students.studentID = enrollments.Student where enrollments.Course = %s"
     my_cursor.execute(sql, (classID,))
     results = my_cursor.fetchall()
     for row in results:
