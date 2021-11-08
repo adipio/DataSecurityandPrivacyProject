@@ -52,41 +52,41 @@ if __name__ == "__main__":
                 print("Admin")
                 print("What would you like to do [addUser], [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
                 print("[viewUsers],[viewCourses], [viewStudents], [changeRole], [enrollStudent], [coursesIn], [studentsIn]")
-                input = input("Selection:")
-                if(input == "addUser"):
+                command = input("Selection:")
+                if(command == "addUser"):
                     DBfuncs.addUser()
-                elif(input == "addFaculty"):
+                elif(command == "addFaculty"):
                     DBfuncs.addFaculty()
-                elif(input == "addCourse"):
+                elif(command == "addCourse"):
                     DBfuncs.addCourse()
-                elif(input == "addStudent"):
+                elif(command == "addStudent"):
                     DBfuncs.addStudent()
-                elif(input == "deleteUser"):
+                elif(command == "deleteUser"):
                     DBfuncs.deleteUser()
-                elif(input == "deleteFaculty"):
+                elif(command == "deleteFaculty"):
                     DBfuncs.deleteFaculty()
-                elif(input == "deleteCourse"):
+                elif(command == "deleteCourse"):
                     DBfuncs.deleteCourse()
-                elif(input == "deleteStudent"):
+                elif(command == "deleteStudent"):
                     DBfuncs.deleteStudent()
-                elif (input == "viewFaculty"):
+                elif (command == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif (input == "viewUsers"):
+                elif (command == "viewUsers"):
                     DBfuncs.viewUsers()
-                elif (input == "viewCourses"):
+                elif (command == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif (input == "viewStudents"):
+                elif (command == "viewStudents"):
                     DBfuncs.viewStudents()
-                elif(input == "changeRole"):
+                elif(command == "changeRole"):
                     DBfuncs.changeRole()
-                elif(input == "enrollStudent"):
-                    studentid = input ("Enter student id:")
-                    courseid = input ("Enter course id:")
+                elif(command == "enrollStudent"):
+                    studentid = input("Enter student id:")
+                    courseid = input("Enter course id:")
                     DBfuncs.enrollStudent(studentid,courseid)
-                elif(input == "coursesIn"):
+                elif(command == "coursesIn"):
                     studentid = input("Enter student id:")
                     DBfuncs.viewCoursesIn(studentid)
-                elif(input == "studentsIn"):
+                elif(command == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
                 else:
@@ -95,77 +95,77 @@ if __name__ == "__main__":
                 print("Dean")
                 print("What would you like to do [addFaculty], [addCourse], [addStudent], [deleteCourse], [deleteStudent], [viewFaculty]")
                 print("[viewCourses], [viewStudents], [enrollStudent], [coursesIn], [studentsIn]")
-                input = input("Selection:")
-                if(input == "addFaculty"):
+                command = input("Selection:")
+                if(command == "addFaculty"):
                     DBfuncs.addFaculty()
-                elif(input == "addCourse"):
+                elif(command == "addCourse"):
                     DBfuncs.addCourse()
-                elif(input == "addStudent"):
+                elif(command == "addStudent"):
                     DBfuncs.addStudent()
-                elif(input == "deleteCourse"):
+                elif(command == "deleteCourse"):
                     DBfuncs.deleteCourse()
-                elif(input == "deleteStudent"):
+                elif(command == "deleteStudent"):
                     DBfuncs.deleteStudent()
-                elif(input == "viewFaculty"):
+                elif(command == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif(input == "viewCourses"):
+                elif(command == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif(input == "viewStudents"):
+                elif(command == "viewStudents"):
                     DBfuncs.viewStudents()
-                elif(input == "enrollStudent"):
-                    studentid = input ("Enter student id:")
-                    courseid = input ("Enter course id:")
+                elif(command == "enrollStudent"):
+                    studentid = input("Enter student id:")
+                    courseid = input("Enter course id:")
                     DBfuncs.enrollStudent(studentid,courseid)
-                elif(input == "coursesIn"):
+                elif(command == "coursesIn"):
                     studentid = input("Enter student id:")
                     DBfuncs.viewCoursesIn(studentid)
-                elif(input == "studentsIn"):
+                elif(command == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
             case 2:
                 print("Advisor")
                 print("What would you like to do [viewFaculty], [viewCourses], [viewStudents], [enrollStudent], [coursesIn], [studentsIn]")
-                input = input("Selection:")
-                if(input == "viewFaculty"):
+                command = input("Selection:")
+                if(command == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif(input == "viewCourses"):
+                elif(command == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif(input == "viewStudents"):
+                elif(command == "viewStudents"):
                     DBfuncs.viewStudents()
-                elif(input == "enrollStudent"):
-                    studentid = input ("Enter student id:")
-                    courseid = input ("Enter course id:")
+                elif(command == "enrollStudent"):
+                    studentid = input("Enter student id:")
+                    courseid = input("Enter course id:")
                     DBfuncs.enrollStudent(studentid,courseid)
-                elif(input == "coursesIn"):
+                elif(command == "coursesIn"):
                     studentid = input("Enter student id:")
                     DBfuncs.viewCoursesIn(studentid)
-                elif(input == "studentsIn"):
+                elif(command == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
             case 1:
                 print("Professor")
                 print("What would you like to do [viewFaculty], [viewCourses], [viewStudents], [studentsIn]")
-                input = input("Selection:")
-                if(input == "viewFaculty"):
+                command = input("Selection:")
+                if(command == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif(input == "viewCourses"):
+                elif(command == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif(input == "viewStudents"):
+                elif(command == "viewStudents"):
                     DBfuncs.viewStudents()
-                elif(input == "studentsIn"):
+                elif(command == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
             case 0:
                 print("Student")
                 print("What would you like to do [viewCourses], [viewStudents]")
-                input = input("Selection:")
-                if(input == "viewFaculty"):
+                command = input("Selection:")
+                if(command == "viewFaculty"):
                     DBfuncs.viewFaculty()
-                elif(input == "viewCourses"):
+                elif(command == "viewCourses"):
                     DBfuncs.viewCourses()
-                elif(input == "viewStudents"):
+                elif(command == "viewStudents"):
                     DBfuncs.viewStudents()
-                elif(input == "studentsIn"):
+                elif(command == "studentsIn"):
                     courseid = input("Enter course id:")
                     DBfuncs.viewStudentsIn(courseid)
 
