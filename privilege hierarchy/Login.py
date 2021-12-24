@@ -1,11 +1,8 @@
-import mysql.connector 
-#import re
-#from passlib.hash import bcrypt
+import mysql.connector
 import connection
 import DBfuncs
 
-
-#checks to see if the user is alredy registered in the database //works
+#checks to see if the user is alredy registered in the database
 def userExists(username):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
@@ -17,7 +14,7 @@ def userExists(username):
     else:
         return False
 
-#returns the user enter's record //works
+#returns the user enter's record
 def getUser(username):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
@@ -26,14 +23,13 @@ def getUser(username):
     results = my_cursor.fetchone()
     return results
 
-
+#checks to make sure the user has the correct password
 def passwordCheck(username, password):
     universitydb = connection.universitydb()
     my_cursor = universitydb.cursor()
     sql = "SELECT password FROM users WHERE username= %s"
     my_cursor.execute(sql, (username,))
     results = my_cursor.fetchone()
-    # if (bcrypt.verify(password, results[0])) == True:
     if (password == results[0]):
         print("login granted")
         return True
@@ -44,7 +40,6 @@ def passwordCheck(username, password):
 #Checks the user's username and password with the one in the database and returns true or false
 def login():
     username = input("Username: ")
-
     while(userExists(username) == False):
         username = input("That user name does not exist try again Username: ")
 
@@ -53,9 +48,6 @@ def login():
         password = input("Invalid password try again. Password: ")
 
     return DBfuncs.getRole(username)
-
-
-
 
 #Function allows a admin to delete any user //done
 def deleteUser(admin):
@@ -68,41 +60,6 @@ def deleteUser(admin):
         universitydb.commit()
         print("User deleted")
         my_cursor.close()
-
-#checks how strong a password is returns true if it is strong
-def passwordChecker(password):
-    #check the password length
-    if len(password) < 8:
-        return False
-
-    #checks for lower
-    lowerCheck = re.compile(r'[a-z]')
-    if not(lowerCheck.search(password)):
-        return False
-
-    #checks for upper
-    upperCheck = re.compile(r'[A-Z]')
-    if not(upperCheck.search(password)):
-        return False
-
-    #checks for number
-    numCheck = re.compile(r'\d')
-    if not(numCheck.search(password)):
-        return False
-
-    #checks for special character
-    spCheck = re.compile(r'\W')
-    if not(spCheck.search(password)):
-        return False
-    else:
-        return True
-
-'''
-#Hashes and returns a password
-def passHash(password):
-    hashed_password = bcrypt.hash(password)
-    return hashed_password
-'''
 
 #checks to see if the user is alredy registered in the database
 def userExists(username):
@@ -124,6 +81,7 @@ def add(username, password):
     my_cursor.execute(sqlStuff, (username, password))
     universitydb.commit()
     my_cursor.close()
+    return True
 
 #checks to see if the userID is taken and adds the user if the user does not exist.
 def signUp():
@@ -146,8 +104,4 @@ def signUp():
             print("User was successfully added to the database")
             return True
         else:
-            print("Failed to add user")
             return False
-    #else:
-        #print("Passwords don't match")
-        #return False
